@@ -1,324 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #000;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #000;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #000;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #000;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #cb6;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #cb6;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      Why you should go with metal roofing? | Martin Contracting LLC
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://www.martincontractingllc.net/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/martincontracting?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a
+            href="https://sites.google.com/view/metalroofingpittsburghpamartic/Metal-Roofing-Pittsburgh-PA"
+            >Martin Contracting LLC</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>Why you should go with metal roofing?</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/4W1Dz5aQUSI"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <a
+            class="button-link"
+            href="https://www.martincontractingllc.net/why-you-should-go-with-metal-roofing"
+            >Read Post</a
+          >
+        </section>
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <p>
+            Metal roofing is the best choice for your home because it comes in a
+            variety of colors and styles to match any type of architecture. It’s
+            also durable, long-lasting, and low-maintenance. Plus, metal roofs
+            are environmentally friendly because they don't contain toxins that
+            can leak into soil or water supplies like other types of roofing
+            materials do. Metal roofs have been around since the 1800s when tin
+            was used as an alternative to copper and lead roofs that were common
+            at that time. Today, aluminum and steel are the most popular
+            materials used in metal roofing because they're lightweight yet
+            strong and resistant to fire, rot, and insect damage.
+          </p>
+          <p>
+            Another advantage of choosing metal roofing for your home is that it
+            reflects heat away from your house, which can help keep your energy
+            bills down during the hot summer months. Metal roofs are also known
+            as "cool roofs" because they reflect more sunlight than dark-colored
+            asphalt shingles, which helps keep your attic and upper floors
+            cooler. And if you live in an area that's prone to wildfires, a
+            metal roof can provide an extra layer of protection for your home.
+          </p>
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>Why you should go with metal roofing? | Martin Contracting LLC</title>
-</head>
+        <section>
+          <h2>
+            Metal roofing is a great insulator, keeping your home cooler in the
+            summer and warmer in the winter
+          </h2>
+          <p>
+            Metal roofing is a type of roofing material that has been around for
+            thousands of years. It can be used on the exterior and interior
+            surfaces of buildings. It is also an excellent insulator, keeping
+            homes cool in the summer and warm in the winter, which saves both
+            money and energy. Metal roofs are also more fire-resistant than
+            other materials like shingles or tile. In addition to all these
+            benefits, metal roofs are more durable than many other types of
+            materials (lasting upwards of 50 years), so they require less
+            maintenance over time. All this makes metal roofs an excellent
+            option for a homeowner looking for something low-maintenance but
+            high quality at the same time!
+          </p>
+          <a class="button-link" href="https://www.martincontractingllc.net/"
+            >Visit Us</a
+          >
+        </section>
 
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://www.martincontractingllc.net/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/martincontracting?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/metalroofingpittsburghpamartic/Metal-Roofing-Pittsburgh-PA">Martin Contracting LLC</a></li>      
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>Why you should go with metal roofing?</h1>
-      </section>
-
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/4W1Dz5aQUSI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <a class="button-link"
-            href="https://www.martincontractingllc.net/why-you-should-go-with-metal-roofing">Read Post</a>
-      </section>
-
-      <section>
-          <p>Metal roofing is the best choice for your home because it comes in a variety of colors and styles to match any type of architecture.  It’s also durable, long-lasting, and low-maintenance. Plus, metal roofs are environmentally friendly because they don't contain toxins that can leak into soil or water supplies like other types of roofing materials do. Metal roofs have been around since the 1800s when tin was used as an alternative to copper and lead roofs that were common at that time. Today, aluminum and steel are the most popular materials used in metal roofing because they're lightweight yet strong and resistant to fire, rot, and insect damage.</p>
-          <p>Another advantage of choosing metal roofing for your home is that it reflects heat away from your house, which can help keep your energy bills down during the hot summer months. Metal roofs are also known as "cool roofs" because they reflect more sunlight than dark-colored asphalt shingles, which helps keep your attic and upper floors cooler. And if you live in an area that's prone to wildfires, a metal roof can provide an extra layer of protection for your home.</p>
-      </section>
-
-      <section>
-          <h2>Metal roofing is a great insulator, keeping your home cooler in the summer and warmer in the winter</h2>
-          <p>Metal roofing is a type of roofing material that has been around for thousands of years. It can be used on the exterior and interior surfaces of buildings. It is also an excellent insulator, keeping homes cool in the summer and warm in the winter, which saves both money and energy. Metal roofs are also more fire-resistant than other materials like shingles or tile. In addition to all these benefits, metal roofs are more durable than many other types of materials (lasting upwards of 50 years), so they require less maintenance over time. All this makes metal roofs an excellent option for a homeowner looking for something low-maintenance but high quality at the same time!</p>
-          <a class="button-link"
-                href="https://www.martincontractingllc.net/">Visit Us</a>
-      </section>
-
-      <section>
+        <section>
           <h2>It's durable and can last for up to 50 years or more</h2>
-          <br>        
+          <br />
           <div class="two-col">
-              <div>
-                  <img style="height: 370px" src="https://lh3.googleusercontent.com/geougc/AF1QipNirZzwz3slNhkjDChWm0B3537f9h9U2gAb2Xp7=h400-no" alt="Metal Roofing Pittsburgh, PA">
-              </div>
-              <div>
-                  <p>You must choose a roofing material for your home which will last. Though there are many different options, metal roofs have proven to be among the most durable and long-lasting materials on the market. With this in mind, it's worth taking some time to learn more about them so you can decide with confidence.</p>
-                  <p>Metal roofs are made from aluminum or steel coated with paint or another substance like copper or zinc oxide to prevent oxidation. They're usually installed over other types of shingles (like asphalt) and they sit atop wood sheathing when installed as part of new construction. When used as an overlay, they can also cover an existing roof without removing any of its surface material first--a process known as "re-roofing."</p>
-              </div>
+            <div>
+              <img
+                style="height: 370px"
+                src="https://lh3.googleusercontent.com/geougc/AF1QipNirZzwz3slNhkjDChWm0B3537f9h9U2gAb2Xp7=h400-no"
+                alt="Metal Roofing Pittsburgh, PA"
+              />
+            </div>
+            <div>
+              <p>
+                You must choose a roofing material for your home which will
+                last. Though there are many different options, metal roofs have
+                proven to be among the most durable and long-lasting materials
+                on the market. With this in mind, it's worth taking some time to
+                learn more about them so you can decide with confidence.
+              </p>
+              <p>
+                Metal roofs are made from aluminum or steel coated with paint or
+                another substance like copper or zinc oxide to prevent
+                oxidation. They're usually installed over other types of
+                shingles (like asphalt) and they sit atop wood sheathing when
+                installed as part of new construction. When used as an overlay,
+                they can also cover an existing roof without removing any of its
+                surface material first--a process known as "re-roofing."
+              </p>
+            </div>
           </div>
-          <p>The lifespan of a metal roof is impressive. When properly installed and maintained, these roofs can last up to 50 years or more. It's not uncommon to see metal roofs that are still going strong after several decades. This longevity is one of the main reasons why metal roofs have become increasingly popular in recent years.</p>
-          <p>Another great benefit of metal roofs is that they're extremely resistant to fire. This makes them an ideal choice for homes in areas that are prone to wildfires. If you live in such an area, a metal roof can give you peace of mind knowing that your home is better protected against this type of disaster.</p>
-      </section>
+          <p>
+            The lifespan of a metal roof is impressive. When properly installed
+            and maintained, these roofs can last up to 50 years or more. It's
+            not uncommon to see metal roofs that are still going strong after
+            several decades. This longevity is one of the main reasons why metal
+            roofs have become increasingly popular in recent years.
+          </p>
+          <p>
+            Another great benefit of metal roofs is that they're extremely
+            resistant to fire. This makes them an ideal choice for homes in
+            areas that are prone to wildfires. If you live in such an area, a
+            metal roof can give you peace of mind knowing that your home is
+            better protected against this type of disaster.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>It's fire-resistant and won't easily ignite or spread flames</h2>
-          <p>Metal roofing is a great choice for your home or business for many reasons. One of the most important is that it's fire-resistant. A metal roof will not easily ignite or spread flames, which can be very important if you live in an area that is prone to wildfires. Additionally, metal roofs are often much more durable than other types of roofing materials, and they can last for many years without needing to be replaced. If you're looking for a roofing material that is both safe and long-lasting, metal is a good option to consider.</p>
-          <br>
+          <p>
+            Metal roofing is a great choice for your home or business for many
+            reasons. One of the most important is that it's fire-resistant. A
+            metal roof will not easily ignite or spread flames, which can be
+            very important if you live in an area that is prone to wildfires.
+            Additionally, metal roofs are often much more durable than other
+            types of roofing materials, and they can last for many years without
+            needing to be replaced. If you're looking for a roofing material
+            that is both safe and long-lasting, metal is a good option to
+            consider.
+          </p>
+          <br />
           <h2>Metal roofs are environmentally friendly and can be recycled</h2>
-          <p>Metal roofs are becoming more and more popular among homeowners for a variety of reasons. They’re environmentally friendly, they can be recycled, and they last longer than traditional roofing materials. In this article, we’ll take a closer look at the benefits of metal roofing and why you should consider it for your home.</p>
-          <p>One of the biggest benefits of metal roofing is that it’s environmentally friendly. Metal roofs can be recycled, so you can feel good about knowing that your roof will eventually end up back in use instead of taking up space in a landfill. Additionally, metal roofs reflect sunlight and heat away from your home, which helps to keep your energy costs down during the summer months.</p>
-          <p>Metal roofs also last longer than traditional asphalt shingle roofs. They’re resistant to fire, wind, and hail, so you can rest assured that your roof will protect your home for many years to come. And, if you ever do need to replace your metal roof, the old roof can be recycled again.</p>
-      </section>
+          <p>
+            Metal roofs are becoming more and more popular among homeowners for
+            a variety of reasons. They’re environmentally friendly, they can be
+            recycled, and they last longer than traditional roofing materials.
+            In this article, we’ll take a closer look at the benefits of metal
+            roofing and why you should consider it for your home.
+          </p>
+          <p>
+            One of the biggest benefits of metal roofing is that it’s
+            environmentally friendly. Metal roofs can be recycled, so you can
+            feel good about knowing that your roof will eventually end up back
+            in use instead of taking up space in a landfill. Additionally, metal
+            roofs reflect sunlight and heat away from your home, which helps to
+            keep your energy costs down during the summer months.
+          </p>
+          <p>
+            Metal roofs also last longer than traditional asphalt shingle roofs.
+            They’re resistant to fire, wind, and hail, so you can rest assured
+            that your roof will protect your home for many years to come. And,
+            if you ever do need to replace your metal roof, the old roof can be
+            recycled again.
+          </p>
+        </section>
 
-      <section>
-          <div style="display:flex; justify-content:center;">
-              <img src="https://lh3.googleusercontent.com/geougc/AF1QipPkd20rpEE6DsfawvpUsy-ukRIYXWDaPu8YmpCX=h400-no" alt="Metal Roofing Pittsburgh, PA">
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipPkd20rpEE6DsfawvpUsy-ukRIYXWDaPu8YmpCX=h400-no"
+              alt="Metal Roofing Pittsburgh, PA"
+            />
           </div>
-          <br>
-          <h2 style="text-align:center">They come in a variety of colors and styles to match any home</h2>
-          <hr>
-          <br>
-          <p>Metal roofing is a great option for your home. It is durable, long-lasting, and comes in a variety of colors and styles to match any home. Metal roofs are also recyclable, so you can feel good about making a green choice for your home. Plus, they are fire-resistant, so you can be safe knowing that your roof will protect your home in the event of a fire.</p>
-          <p>Martin Contracting LLC can install a metal roof that is superior in quality to any other type of roofing material. Metal roofs are known for their durability and long life span. In addition, they are also fire-resistant and can withstand severe weather conditions. If you are looking for a roof that will last for many years, then metal is the way to go! For more information on Martin Contracting LLC and our metal roofing services, please visit our website or give us a call today. We would be happy to answer any of your questions. Thank you for considering Martin Contracting LLC!</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=15625704703171224555">Find Us Here!</a>
-      </section>
+          <br />
+          <h2 style="text-align: center">
+            They come in a variety of colors and styles to match any home
+          </h2>
+          <hr />
+          <br />
+          <p>
+            Metal roofing is a great option for your home. It is durable,
+            long-lasting, and comes in a variety of colors and styles to match
+            any home. Metal roofs are also recyclable, so you can feel good
+            about making a green choice for your home. Plus, they are
+            fire-resistant, so you can be safe knowing that your roof will
+            protect your home in the event of a fire.
+          </p>
+          <p>
+            Martin Contracting LLC can install a metal roof that is superior in
+            quality to any other type of roofing material. Metal roofs are known
+            for their durability and long life span. In addition, they are also
+            fire-resistant and can withstand severe weather conditions. If you
+            are looking for a roof that will last for many years, then metal is
+            the way to go! For more information on Martin Contracting LLC and
+            our metal roofing services, please visit our website or give us a
+            call today. We would be happy to answer any of your questions. Thank
+            you for considering Martin Contracting LLC!
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=15625704703171224555"
+            >Find Us Here!</a
+          >
+        </section>
 
-  
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24877795.746207096!2d-80.331396!3d40.434535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd8d9a7a395abe3eb!2sMartin%20Contracting%2C%20LLC!5e0!3m2!1sen!2sph!4v1649635763115!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Metal%20Roofing%20Pittsburgh,%20PA</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24877795.746207096!2d-80.331396!3d40.434535!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd8d9a7a395abe3eb!2sMartin%20Contracting%2C%20LLC!5e0!3m2!1sen!2sph!4v1649635763115!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Metal%20Roofing%20Pittsburgh,%20PA</iframe
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.visitpittsburgh.com/things-to-do/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.visitpittsburgh.com/things-to-do/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.wpxi.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.wpxi.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.martincontractingllc.net/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.martincontractingllc.net/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="http://www.pearltrees.com/martincontracting" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="http://www.pearltrees.com/martincontracting"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-          <a target="_bLank" href="https://rank-fortress-digital-agency.github.io/martincontractingllc-02-22/">https://rank-fortress-digital-agency.github.io/martincontractingllc-02-22/</a><br>
-          <a target="_bLank" href="http://martincontractingllc-02-22.s3-website-us-west-2.amazonaws.com/">http://martincontractingllc-02-22.s3-website-us-west-2.amazonaws.com/</a><br>
-          <a target="_bLank" href="https://bucolic-snickerdoodle-22f452.netlify.app/">https://bucolic-snickerdoodle-22f452.netlify.app/</a><br>
-          <a target="_bLank" href="https://sites.google.com/view/metalroofingpittsburghpamartic/Metal-Roofing-Pittsburgh-PA">https://sites.google.com/view/metalroofingpittsburghpamartic/Metal-Roofing-Pittsburgh-PA</a><br>
-      </section>
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/martincontractingllc-02-22/"
+            >https://rank-fortress-digital-agency.github.io/martincontractingllc-02-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://martincontractingllc-02-22.s3-website-us-west-2.amazonaws.com/"
+            >http://martincontractingllc-02-22.s3-website-us-west-2.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://bucolic-snickerdoodle-22f452.netlify.app/"
+            >https://bucolic-snickerdoodle-22f452.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/metalroofingpittsburghpamartic/Metal-Roofing-Pittsburgh-PA"
+            >https://sites.google.com/view/metalroofingpittsburghpamartic/Metal-Roofing-Pittsburgh-PA</a
+          ><br />
+        </section>
+      </div>
 
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/martincontracting2017/"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=15625704703171224555"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCKA_dNqgpx7UcNCEn3FvU1A"
+                >Youtube</a
+              >
+            </li>
+            <li>
+              <a href="http://www.pearltrees.com/martincontracting"
+                >Pearltrees</a
+              >
+            </li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li>
+              <a href="https://martincontrac.livejournal.com/368.html">About</a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://www.martincontractingllc.net/">Main</a></li>
+            <li><a href="https://g.page/martincontracting?share">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/martincontracting2017/">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=15625704703171224555">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCKA_dNqgpx7UcNCEn3FvU1A">Youtube</a></li>
-          <li><a href="http://www.pearltrees.com/martincontracting">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="https://martincontrac.livejournal.com/368.html">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.martincontractingllc.net/">Main</a></li>
-          <li><a href="https://g.page/martincontracting?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
